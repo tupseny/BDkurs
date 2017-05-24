@@ -1,0 +1,22 @@
+-- Primary key creating sequences
+CREATE SEQUENCE pk_seq_uni;
+CREATE SEQUENCE pk_seq_item;
+CREATE SEQUENCE pk_seq_player;
+CREATE SEQUENCE pk_seq_gm;
+CREATE SEQUENCE pk_seq_word;
+CREATE SEQUENCE pk_seq_un_wr;
+CREATE SEQUENCE pk_seq_precip;
+CREATE SEQUENCE pk_seq_tool;
+CREATE SEQUENCE pk_seq_block;
+CREATE SEQUENCE pk_seq_biome;
+CREATE SEQUENCE pk_seq_wr_bi;
+CREATE SEQUENCE pk_seq_weapon;
+CREATE SEQUENCE pk_seq_plant;
+CREATE SEQUENCE pk_seq_effect;
+CREATE SEQUENCE pk_seq_food;
+CREATE SEQUENCE pk_seq_drop;
+CREATE SEQUENCE pk_seq_dmg_type;
+CREATE SEQUENCE pk_seq_friendm;
+CREATE SEQUENCE pk_seq_mob;
+CREATE SEQUENCE pk_seq_bi_mob;
+CREATE SEQUENCE pk_seq_inv;
