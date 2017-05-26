@@ -162,11 +162,11 @@ INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('desert', 0, 10, 'FA9418
 INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('extreme_hills', 0, 1, '606060');
 INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('forest', 0, 2, '056621');
 INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('taiga', 1, 3, '0B6659');
-INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('frozen_ocean', 0, 67, '9090A0');
-INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('ice_plains', 2, 68, 'FFFFFF');
+INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('frozen_ocean', 0, 28, '9090A0');
+INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('ice_plains', 2, 29, 'FFFFFF');
 INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('jungle', 1, 2, '537B09');
 INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('rain_forest', 3, 2, '22551C');
-INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('hell', 0, 69, 'FF0000');
+INSERT INTO biome (name, prec_id, bl_id, color) VALUES ('hell', 0, 30, 'FF0000');
 
 INSERT INTO wr_bi (wr_id, bi_id) VALUES (0, 0);
 INSERT INTO wr_bi (wr_id, bi_id) VALUES (0, 1);
@@ -227,7 +227,7 @@ insert into ITEM_TYPE (NAME) values ('food');
 insert into ITEM_TYPE (NAME) values ('plant');
 
 insert into TYPE_ITEM (ITEM_ID, TYPE_ID) values (7, 3);
-insert into TYPE_ITEM (ITEM_ID, TYPE_ID) values (27, 0;
+insert into TYPE_ITEM (ITEM_ID, TYPE_ID) values (27, 0);
 insert into TYPE_ITEM (ITEM_ID, TYPE_ID) values (28, 0);
 insert into TYPE_ITEM (ITEM_ID, TYPE_ID) values (29, 0);
 insert into TYPE_ITEM (ITEM_ID, TYPE_ID) values (30, 0);

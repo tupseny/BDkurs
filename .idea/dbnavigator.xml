@@ -25,8 +25,13 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae">
-        <schema name="pg_catalog" object-types="constraint, function, sequence, table, view" />
-        <schema name="public" object-types="constraint, function, sequence, table, view" />
+        <schema name="pg_catalog" object-types="function, sequence, table, view" />
+        <schema name="public" object-types="column, function, sequence, table, view" />
+      </connection>
+      <connection connection-id="51410dd5-2ff7-41f8-8550-fa6f2590658d">
+        <schema name="pg_catalog" object-types="function, table, view" />
+        <schema name="public" object-types="column, function, table, view" />
+        <schema name="test2" object-types="function, table, view" />
       </connection>
     </loaded-nodes>
   </component>
@@ -34,18 +39,21 @@
     <connection id="ac507c17-36be-4b3f-9de8-85e022b465ae">
       <console name="LenovoServer" type="STANDARD" />
     </connection>
+    <connection id="51410dd5-2ff7-41f8-8550-fa6f2590658d">
+      <console name="Connection" type="STANDARD"><![CDATA[select * from item]]></console>
+    </connection>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/src/index.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/Create Base.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/insert data.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
     <mapping file-url="file://$PROJECT_DIR$/src/delete$create.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/sequences.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/functions.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/trigger.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/Create Base.sql" connection-id="51410dd5-2ff7-41f8-8550-fa6f2590658d" current-schema="test2" />
+    <mapping file-url="file://$PROJECT_DIR$/src/insert data.sql" connection-id="51410dd5-2ff7-41f8-8550-fa6f2590658d" current-schema="test2" />
+    <mapping file-url="file://$PROJECT_DIR$/src/sequences.sql" connection-id="51410dd5-2ff7-41f8-8550-fa6f2590658d" current-schema="test2" />
+    <mapping file-url="file://$PROJECT_DIR$/src/index.sql" connection-id="51410dd5-2ff7-41f8-8550-fa6f2590658d" current-schema="test2" />
+    <mapping file-url="file://$PROJECT_DIR$/src/trigger.sql" connection-id="51410dd5-2ff7-41f8-8550-fa6f2590658d" current-schema="test2" />
+    <mapping file-url="file://$PROJECT_DIR$/src/functions.sql" connection-id="51410dd5-2ff7-41f8-8550-fa6f2590658d" current-schema="test2" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -73,6 +81,82 @@
         <database>
           <name value="LenovoServer" />
           <description value="Virtual server for testing the base" />
+          <database-type value="POSTGRES" />
+          <config-type value="BASIC" />
+          <database-version value="9.6" />
+          <driver-source value="BUILTIN" />
+          <driver-library value="" />
+          <driver value="" />
+          <url-type value="DATABASE" />
+          <host value="localhost" />
+          <port value="5432" />
+          <database value="postgres" />
+          <os-authentication value="false" />
+          <empty-password value="false" />
+          <user value="postgres" />
+          <password value="cG9zdGdyZXM=" />
+        </database>
+        <properties>
+          <auto-commit value="false" />
+        </properties>
+        <ssh-settings>
+          <active value="false" />
+          <proxy-host value="" />
+          <proxy-port value="22" />
+          <proxy-user value="" />
+          <proxy-password value="" />
+          <auth-type value="PASSWORD" />
+          <key-file value="" />
+          <key-passphrase value="" />
+        </ssh-settings>
+        <details>
+          <charset value="UTF-8" />
+          <ddl-file-binding value="true" />
+          <database-logging value="false" />
+          <connect-automatically value="true" />
+          <restore-workspace value="true" />
+          <restore-workspace-deep value="true" />
+          <environment-type value="default" />
+          <idle-time-to-disconnect value="30" />
+          <password-expiry-time value="10" />
+          <max-connection-pool-size value="7" />
+          <alternative-statement-delimiter value="" />
+        </details>
+        <object-filters hide-empty-schemas="false">
+          <object-type-filter use-master-settings="true">
+            <object-type name="SCHEMA" enabled="true" />
+            <object-type name="USER" enabled="true" />
+            <object-type name="ROLE" enabled="true" />
+            <object-type name="PRIVILEGE" enabled="true" />
+            <object-type name="CHARSET" enabled="true" />
+            <object-type name="TABLE" enabled="true" />
+            <object-type name="VIEW" enabled="true" />
+            <object-type name="MATERIALIZED_VIEW" enabled="true" />
+            <object-type name="NESTED_TABLE" enabled="true" />
+            <object-type name="COLUMN" enabled="true" />
+            <object-type name="INDEX" enabled="true" />
+            <object-type name="CONSTRAINT" enabled="true" />
+            <object-type name="DATASET_TRIGGER" enabled="true" />
+            <object-type name="DATABASE_TRIGGER" enabled="true" />
+            <object-type name="SYNONYM" enabled="true" />
+            <object-type name="SEQUENCE" enabled="true" />
+            <object-type name="PROCEDURE" enabled="true" />
+            <object-type name="FUNCTION" enabled="true" />
+            <object-type name="PACKAGE" enabled="true" />
+            <object-type name="TYPE" enabled="true" />
+            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
+            <object-type name="ARGUMENT" enabled="true" />
+            <object-type name="DIMENSION" enabled="true" />
+            <object-type name="CLUSTER" enabled="true" />
+            <object-type name="DBLINK" enabled="true" />
+          </object-type-filter>
+          <object-name-filters />
+        </object-filters>
+      </connection>
+      <connection id="51410dd5-2ff7-41f8-8550-fa6f2590658d" active="true">
+        <database>
+          <name value="Connection" />
+          <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
           <database-version value="9.6" />

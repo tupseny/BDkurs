@@ -270,7 +270,7 @@ LANGUAGE 'plpgsql';
 create or replace function attk_check_func()
   returns "trigger" AS $$
 begin
-  if new.fm_id == 0
+  if new.fm_id::integer = 0
   then
     new.dmg_id = null;
   end if;
