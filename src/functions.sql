@@ -252,6 +252,7 @@ LANGUAGE 'plpgsql';
 
 
 -- other functions
+-- other functions
 CREATE OR REPLACE FUNCTION max_stack_check_func()
   RETURNS "trigger" AS
 $$
@@ -260,6 +261,9 @@ begin
   where new.item_id = item.ID)
   then
     return NULL;
+  elsif new.count <= 0
+  then
+	return NULL;
   else
     return NEW;
   end if;
