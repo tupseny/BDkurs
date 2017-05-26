@@ -21,3 +21,7 @@ CREATE SEQUENCE pk_seq_mob minvalue 0;
 CREATE SEQUENCE pk_seq_bi_mob minvalue 0;
 CREATE SEQUENCE pk_seq_inv minvalue 0;
 create sequence pk_seq_mat minvalue 0;
+create sequence pk_seq_type_item minvalue 0;
+create sequence pk_seq_item_type minvalue 0;
+create sequence pk_seq_mob_drop minvalue 0;
+

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -26,7 +26,7 @@
     <loaded-nodes>
       <connection connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae">
         <schema name="pg_catalog" object-types="constraint, function, sequence, table, view" />
-        <schema name="public" object-types="column, constraint, function, sequence, table, view" />
+        <schema name="public" object-types="constraint, function, sequence, table, view" />
       </connection>
     </loaded-nodes>
   </component>
@@ -39,13 +39,13 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/src/insert data.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/functions.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/sequences.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
     <mapping file-url="file://$PROJECT_DIR$/src/index.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
     <mapping file-url="file://$PROJECT_DIR$/src/Create Base.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/trigger.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/insert data.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
     <mapping file-url="file://$PROJECT_DIR$/src/delete$create.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/sequences.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/functions.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/trigger.sql" connection-id="ac507c17-36be-4b3f-9de8-85e022b465ae" current-schema="public" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -63,7 +63,9 @@
     <filters />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
-    <recently-used-interfaces />
+    <recently-used-interfaces>
+      <mapping database-type="POSTGRES" interface-id="DEFAULT" />
+    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
