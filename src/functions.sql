@@ -219,3 +219,66 @@ BEGIN
 END;
 $$
 LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION pk_func_type_item()
+  RETURNS "trigger" AS
+$$
+BEGIN
+  new.ID = nextval('pk_seq_type_item');
+  RETURN new;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION pk_func_item_type()
+  RETURNS "trigger" AS
+$$
+BEGIN
+  new.ID = nextval('pk_seq_item_type');
+  RETURN new;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION pk_func_mob_drop()
+  RETURNS "trigger" AS
+$$
+BEGIN
+  new.ID = nextval('pk_seq_mob_drop');
+  RETURN new;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+
+-- other functions
+-- other functions
+CREATE OR REPLACE FUNCTION max_stack_check_func()
+  RETURNS "trigger" AS
+$$
+begin
+  IF new.count > (select max_stack from item
+  where new.item_id = item.ID)
+  then
+    return NULL;
+  elsif new.count <= 0
+  then
+	return NULL;
+  else
+    return NEW;
+  end if;
+end;
+$$
+LANGUAGE 'plpgsql';
+
+create or replace function attk_check_func()
+  returns "trigger" AS $$
+begin
+  if (new.fm_id::integer = 0)
+  then
+    new.dmg_id = null;
+  end if;
+  return NEW;
+end;
+$$
+language 'plpgsql';

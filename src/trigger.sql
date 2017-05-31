@@ -109,3 +109,30 @@ CREATE TRIGGER pk_mat
 BEFORE INSERT ON MATERIAL
 FOR EACH ROW
 EXECUTE PROCEDURE pk_func_mat();
+
+CREATE TRIGGER pk_type_item
+BEFORE INSERT ON type_item
+FOR EACH ROW
+EXECUTE PROCEDURE pk_func_type_item();
+
+CREATE TRIGGER pk_item_type
+BEFORE INSERT ON ITEM_TYPe
+FOR EACH ROW
+EXECUTE PROCEDURE pk_func_item_type();
+
+CREATE TRIGGER pk_mob_drop
+BEFORE INSERT ON MOB_DROP
+FOR EACH ROW
+EXECUTE PROCEDURE pk_func_mob_drop();
+
+
+-- another triggers
+create trigger max_stack_check
+before insert or update on inventory
+for each row
+EXECUTE procedure max_stack_check_func();
+
+create trigger attk_check
+before insert or update on MOB
+for each row
+execute procedure attk_check_func();
