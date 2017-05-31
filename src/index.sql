@@ -1,0 +1,10 @@
+CREATE INDEX ON item(max_stack);
+CREATE INDEX ON bi_mob(bi_id, mob_id);
+CREATE INDEX ON biome(prec_id, bl_id);
+CREATE INDEX ON block(item_id, material_id);
+CREATE INDEX on drops(item_id, count);
+CREATE INDEX on food(ef_id);
+CREATE INDEX on mob(fm_id);
+CREATE INDEX on mob_drop(mob_id);
+CREATE INDEX on type_item(type_id);
+CREATE INDEX on wr_bi(wr_id);
