@@ -14,6 +14,12 @@ create table if not exists ITEM(
   MAX_STACK SMALLINT NOT NULL CONSTRAINT stack_size_lim CHECK (MAX_STACK >= 0 AND MAX_STACK <1000) DEFAULT 64
 );
 
+
+create table if not exists INVENTORY(
+  ID serial PRIMARY KEY,
+  FREE_SPACE smallint not null default 36 check (FREE_SPACE <= 36 AND FREE_SPACE >= 0)
+);
+
 create table if not exists PLAYER(
   ID serial PRIMARY KEY,
   title VARCHAR(25) NOT NULL DEFAULT 'PLAYER',
@@ -22,7 +28,7 @@ create table if not exists PLAYER(
   EXP INT NOT NULL,
   UN_ID INT references UNIVERSE ON delete cascade,
   INV_ID INT unique references INVENTORY on delete restrict,
-  CONSTRAINT positive_hp$hungry$exp CHECK (HP >= 0 AND HUNGRY >= 0 AND EXP >= 0)
+  CONSTRAINT positive_hp\$hungry\$exp CHECK (HP >= 0 AND HUNGRY >= 0 AND EXP >= 0)
 );
 
 create table if not exists GAMEMODE(
@@ -78,7 +84,7 @@ create table if not exists MATERIAL(
 
 create table if not exists BLOCK(
   ITEM_ID INT primary key REFERENCES ITEM ON DELETE CASCADE ON update no action,
-  MAT_ID int DEFAULT null references material on delete set default ON update NO action,
+  material_ID int DEFAULT null references material on delete set default ON update NO action,
   TOOL_ID int default null REFERENCES TOOL ON DELETE SET default ON update NO action
 );
 
@@ -106,10 +112,6 @@ create table if not exists PLANT(
   GROW_TIME bigint NOT NULL DEFAULT -1
 );
 
-create table if not exists INVENTORY(
-  ID serial PRIMARY KEY,
-  FREE_SPACE smallint not null default 36 check (FREE_SPACE <= 36 AND FREE_SPACE >= 0)
-);
 
 create table if not exists INV_ITEM(
   id serial primary key,
@@ -135,7 +137,7 @@ create table if not exists DROPS(
   ID serial PRIMARY KEY,
   ITEM_ID INT NOT NULL REFERENCES ITEM ON delete cascade ON update NO action,
   COUNT SMALLINT NOT NULL CHECK (COUNT >= 0),
-  PERCENTAGE double_precision NOT NULL CHECK (PERCENTAGE >= 0 AND PERCENTAGE <= 1)
+  PERCENTAGE float NOT NULL CHECK (PERCENTAGE >= 0 AND PERCENTAGE <= 1)
 );
 
 create table if not exists DMG_TYPE(

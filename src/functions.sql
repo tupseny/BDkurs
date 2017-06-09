@@ -5,6 +5,7 @@ begin
   IF new.count > (select max_stack from item
   where new.item_id = item.ID)
   then
+    raise exception 'max_stack constraint';
     return NULL;
   elsif new.count <= 0
   then
@@ -28,61 +29,33 @@ CREATE OR REPLACE FUNCTION inv_create_func()
 
   CREATE OR REPLACE FUNCTION inv_add_func()
   RETURNS "trigger" as \$\$
-  declare _space record;
   BEGIN
-    record = (select free_space from inventory where id=new.inv_id);
     if (TG_OP = 'INSERT') THEN
-        if (_space > 0) then
-            UPDATE inventory set free_space = _space-1 where id = new.inv_id;
-            return new;
+        if ((select free_space from inventory where id=new.inv_id) > 0) then
+            if (new.id is not null) then
+                UPDATE inventory set free_space = (select free_space from inventory where id=new.inv_id)-1 where id = new.inv_id;
+                return new;
+            end if;
+
         else
             raise exception 'inventory is full';
             return null;
         end if;
     elsif (TG_OP = 'DELETE') then
-        update inventory set free_space = _space+1 where id = new.inv_id;
-        return new;
+        update inventory set free_space = (select free_space from inventory where id=old.inv_id)+1 where id = old.inv_id;
+        return old;
     end if;
   END;
 \$\$
   LANGUAGE "plpgsql";
 
---CREATE or REPLACE FUNCTION newBlock(_name text, _material text, _tool text)
---  RETURNS void AS \$\$
---DECLARE _item_id integer;
---  DECLARE _mat_id integer;
---  DECLARE _tool_id integer;
---    BEGIN
---
---
---      IF not exists(SELECT 1 from item where name::text = _name) then
---        INSERT INTO item(name, max_stack) VALUES (_name, DEFAULT);
---      END IF;
---
---      IF not exists(SELECT 1 from material where name::text = _material)  THEN
---        INSERT INTO material(name, dur, dmg) VALUES (_material, DEFAULT, DEFAULT);
---      END IF;
---
---      IF not exists(SELECT 1 from tool WHERE name::text = _tool)  THEN
---        INSERT INTO tool(name, add_dmg) VALUES (_tool, DEFAULT);
---      END IF;
---
---      _item_id = (SELECT id from item where name::text =_name);
---      _mat_id = (SELECT id from material where name::text = _material);
---      _tool_id = (SELECT id from tool WHERE name::text = _tool);
---
---      INSERT INTO block(item_id, material_id, tool_id) VALUES (_item_id, _mat_id, _tool_id);
---    END;
---\$\$
---  LANGUAGE 'plpgsql';
-
-create trigger max_stack_check
+create trigger a_max_stack_check
 before insert or update on inv_item
 for each row
 EXECUTE procedure max_stack_check_func();
 
 create trigger inv_create
-before insert on player
+before insert on PLAYER
 for each row
 EXECUTE procedure inv_create_func();
 
