@@ -1,1 +1,1 @@
-# PostgreSQL database courcework
+# PostgreSQL database coursework
